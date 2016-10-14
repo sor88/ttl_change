@@ -10,7 +10,7 @@ case $ans in
 
 	Выключить)
 		(iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set 64) | zenity --progress --pulsate --title="Установка TTL в iptables" --text="Прогресс"
-		zenity --info --text "Значение TTL установлено в $ans"
+		zenity --info --text "Значение TTL установлено в $64"
 	;;
 
 	$inst)
