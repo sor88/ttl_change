@@ -4,19 +4,19 @@ ans=$(zenity --list --text "Включение режима Yota через то
 echo $ans
 case $ans in
 	Включить)
-		(iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set 65) | zenity --progress --pulsate --title="Установка TTL в iptables" --text="Прогресс"
+		iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set 65
 		zenity --info --text "Значение TTL установлено в 65"
 	;;
 
 	Выключить)
-		(iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set 64) | zenity --progress --pulsate --title="Установка TTL в iptables" --text="Прогресс"
+		iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set 64
 		zenity --info --text "Значение TTL установлено в $64"
 	;;
 
 	$inst)
 		ans=$(zenity --entry --text="Введите значение TTL вручную:");
 sleep 3
-#		(iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set $ans) | zenity --progress --pulsate --title="Установка TTL в iptables" --text="Прогресс"
+		iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set $ans
 		zenity --info --text "Значение TTL установлено в $ans"
 	;;
 
