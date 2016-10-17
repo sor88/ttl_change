@@ -18,15 +18,24 @@ case $ans in
 #		fi
 #		sudo iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set 64
 		sudo echo "64" >  /proc/sys/net/ipv4/ip_default_ttl
+<<<<<<< HEAD
 		zenity --info --text "Значение TTL установлено в 64"
+=======
+		zenity --info --text "Значение TTL установлено в $64"
+>>>>>>> fa3e40c6a93a9dafb8ff5d27eb4e42db9270827b
 	;;
 
 	$inst)
 		ans=$(zenity --entry --text="Введите значение TTL вручную:");
 sleep 3
 #		sudo iptables -t mangle -A PREROUTING -o eth0 -j TTL --ttl-set $ans
+<<<<<<< HEAD
 		gksudo echo $ans >  /proc/sys/net/ipv4/ip_default_ttl
 		zenity --info --text "Значение TTL установлено в $ans "
+=======
+		sudo echo $ans >  /proc/sys/net/ipv4/ip_default_ttl
+		zenity --info --text "Значение TTL установлено в $ans"
+>>>>>>> fa3e40c6a93a9dafb8ff5d27eb4e42db9270827b
 	;;
 
 	*)
